@@ -20,10 +20,12 @@ from privado.views import  time, createTime, updateTime, deleteTime, conflito, c
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('times/', time),
+    path(r'^times/$', time, name='times'),
     path('adicionarTime/', createTime),
     path('updateTime/<int:id>/', updateTime, name="url_updateTime"),
     path('deleteTime/<int:id>/', deleteTime, name="url_deleteTime"),
     path('conflitos/', conflito),
+    path(r'^conflito/$', conflito, name='conflito'),
     path('adicionarConflito/', createConflito),
     path('updateConflito/<int:id>/', updateConflito, name="url_updateConflito"),
     path('deleteConflito/<int:id>/', deleteConflito, name="url_deleteConflito"),

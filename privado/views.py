@@ -50,6 +50,7 @@ def updateConflito(request, id):
         formConflito.save()
         return redirect("/conflitos")
     pacote = {"form": formConflito}
+    return render(request, "SAAB/formsconflito.html", pacote)
 
 def deleteConflito(request, id):
     aval = Conflito.objects.get(pk=id)
