@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}"/>
+    <title>Conflitos</title>
+  </head>
+  <body>
+    <h1>Conflitos:</h1>
+    <div class="dataTable-container">
+    <table border="2" id="datatablesSimple" class="dataTable-table">
+      {% for i in conflito %}
+      <th>
+        <td>Partida</td>
+        <td>Time</td>
+        <td>Descrição</td>
+        <td>Erro técnico</td>
+        <td colspan="2">Ações</td>
+      </th>
+      <tr>
+        <td>{{ i.codigo }}</td>
+        <td>{{ i.partida }}</td>
+        <td>{{ i.time }}</td>
+        <td>{{ i.descricao }}</td>
+        <td>{{ i.errotecnico }}</td>
+        <td>
+          <a href="{% url 'url_updateConflito' i.codigo %}"> ATUALIZAR </a>
+        </td>
+        <td>
+          <a href="{%url 'url_deleteConflito' i.codigo %}"> DELETAR </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    </div>
+  </body>
+</html>
