@@ -41,7 +41,7 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Addons</div>
+                            <div class="sb-sidenav-menu-heading">Tabelas</div>
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Times
@@ -68,13 +68,13 @@
                             <div class="card-body">
                                 <table id="datatablesSimple" class="dataTable-table">
                                     <thead>
-                                        {% for i in time %}
                                         <tr>
                                             <th style="width: 5%;"> </th>
                                             <th data-sortable style="width:35%;">Nome</th>
                                             <th data-sortable style="width:35%;">Cidade</th>
                                             <th colspan="2" data-sortable>Ações</th>
                                         </tr>
+                                        {% for i in time %}
                                         <tr>
                                             <td> {{ i.codigo }}</td>
                                             <td> {{ i.nome }}</td>
@@ -83,12 +83,15 @@
                                                 <a href="{% url 'url_updateTime' i.codigo %}"> ATUALIZAR </a>
                                             </td>
                                             <td> 
-                                                <a href="{%url 'url_deleteTime' i.codigo %}"> DELETAR  </a>
+                                                <a href="{% url 'url_deleteTime' i.codigo %}"> DELETAR  </a>
                                             </td>
                                         </tr>
                                         {% endfor %}
                                     </thead>
                                 </table>
+                                <div style="width: 15%;">
+                                    <a class="btn btn-primary" href="{% url 'url_addTime' %}" role="button">Adicionar Time</a>
+                                </div>
                             </div>
                         </div>
                     </div>
